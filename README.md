@@ -19,12 +19,14 @@ bot = telebot.TeleBot("5167810612:AAHg9Ff6bEQN8x_AsygOOPqGBGMocSbkCwA", parse_mo
 
 
 # Welcome message
+
 @bot.message_handler(commands=['start'])
 def great(message):
     user_first_name = str(message.chat.first_name)
     bot.reply_to(message, f"Hello {user_first_name} \n Welcome to my humble bot")
 
 # Help message
+
 @bot.message_handler(commands=['help'])
 def send_welcome(message):
     bot.reply_to(message, "\n For playing game click on Game button"
@@ -45,6 +47,7 @@ def age_calculator(message):
         bot.reply_to(message, f"{u_name} you are currently in {age}")
 
 # qrcode generator
+
 @bot.message_handler(commands=['qrcode'])
 def get_qr_string(message):
     u_name = message.from_user.username
@@ -57,6 +60,7 @@ def get_qr_string(message):
         bot.send_photo(message.chat.id, photo)
         
 # voice generator
+
 @bot.message_handler(commands=['voice'])
 def get_voice_string(message):
     u_name = message.from_user.username
@@ -70,6 +74,7 @@ def get_voice_string(message):
         bot.send_audio(message.chat.id, g_voice)
 
 # game
+
 @bot.message_handler(commands=['game'])
 def game_input_number(message):
     u_name = message.from_user.username
@@ -96,6 +101,7 @@ def game_input_number(message):
                 bot.reply_to(message, "you failed")
 
 #argmax
+
 @bot.message_handler(commands=['argmax'])
 def max_index(message):
     bot.reply_to(message, "the array indexes are: [14,7,78,15,8,19,20]")
@@ -105,6 +111,7 @@ def max_index(message):
     bot.reply_to(message, max_index)
 
 #max
+
 @bot.message_handler(commands=['max'])
 def max_index_array(message):
     bot.reply_to(message, "the array indexes are: [14,7,78,15,8,19,20]")
@@ -113,6 +120,7 @@ def max_index_array(message):
     bot.reply_to(message, max_value)
 
 # Running
+
 bot.infinity_polling()
 
 # final result in telegram
